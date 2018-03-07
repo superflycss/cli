@@ -1,0 +1,44 @@
+{
+  "name": "@superflycss/cli",
+  "author": "Ole Ersoy",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "SuperflyCSS Command Line Interface",
+  "main": "index.js",
+  "scripts": {
+    "update": "ncu -a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superflycss/cli.git"
+  },  
+  "bugs": {
+    "url": "https://github.com/superflycss/cli/issues"
+  },
+  "homepage": "https://github.com/superflycss/cli#readme",  
+  "preferGlobal": true,
+  "bin": {
+    "sfc": "./index.js"
+  },  
+  "dependencies": {
+    "@superflycss/pli": "^1.0.1",
+    "autoprefixer": "^8.1.0",
+    "commander": "^2.14.1",
+    "del": "^3.0.0",
+    "globby": "^8.0.1",
+    "mkdirp": "^0.5.1",
+    "node-pretty-log": "^1.1.0",
+    "postcss": "^6.0.19",
+    "postcss-apply": "^0.8.0",
+    "postcss-calc": "^6.0.1",
+    "postcss-color-function": "^4.0.1",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^7.0.0",
+    "postcss-each": "^0.10.0",
+    "postcss-font-magician": "^2.1.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^11.1.0",
+    "postcss-reporter": "^5.0.0",
+    "postcss-sass-color-functions": "^1.1.0"
+  }
+}
