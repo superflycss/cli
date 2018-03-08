@@ -1,5 +1,7 @@
 # SuperflyCSS Commandline Interface
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/superflycss/cli.svg)](https://greenkeeper.io/)
+
 
 CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
 
