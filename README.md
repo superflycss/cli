@@ -1,7 +1,7 @@
 # SuperflyCSS Commandline Interface
 
 
-Commandline interface for running [superflycss](https://github.com/superflycss) tasks.  The commandline interface tasks (`sfc` tasks) use the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
+CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
 
 CSS place main css files in `src/main/css` and test css files in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  See the [Build PostCSS Plugins](https://github.com/superflycss/clid#plugins) list for a list of plugins currently supported.
 
