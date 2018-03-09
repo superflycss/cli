@@ -23,6 +23,11 @@ var pc_reporter = require('postcss-reporter');
 var pc_custom_media = require('postcss-custom-media');
 var pc_font_magician = require('postcss-font-magician');
 const autoprefixer = require('autoprefixer');
+const nunjucks = require('nunjucks');
+const highlight = require('highlight.js');
+
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 
 const postcss_plugins = 
    [pc_import, 
@@ -38,6 +43,45 @@ const postcss_plugins =
     autoprefixer, pc_reporter({
         clearMessages: true
     })]; 
+
+function testCSS() {
+    console.log(pli.SRC_TEST_HTML);
+    globby([pli.SRC_TEST_HTML]).then((paths)=> {
+        paths.forEach(source=>{
+            const filename =  source.substring(pli.src.test.html.length);
+            const target = path.join(pli.target.test.html, filename);
+            fs.readFile(source, (err, html) => {
+            const dom = new JSDOM(html);
+            const document = dom.window.document;
+
+            document.querySelectorAll('.Test_markup > code').forEach((node)=> {
+                var markup = node.innerHTML;
+                var testDescriptionNode =
+                node.parentElement.parentElement.nextElementSibling.querySelector('.Test_description');
+                var renderTestBlock = document.createElement('div');
+                renderTestBlock.innerHTML = markup;
+                renderTestBlock.setAttribute('class', "Test_render");
+                insertAfter(testDescriptionNode, renderTestBlock);
+              });
+              
+              
+              let rendered = nunjucks.renderString(dom.serialize());
+
+              const dom2 = new JSDOM(rendered);
+              const document2 = dom2.window.document;
+
+              document2.querySelectorAll('.Test_markup > code').forEach((node)=> {
+                var markup = node.innerHTML;
+                node.innerHTML = highlight.highlight('html', markup).value;
+              });
+  
+              mkdirp.sync(pli.target.test.html);
+              fs.writeFileSync(target, dom2.serialize());
+            });        
+        });
+    });
+}
+
 
 function buildMainCSS() {
    globby([pli.SRC_MAIN_CSS]).then((paths)=>{
@@ -84,26 +128,40 @@ command('clean').
 alias('c').
 description('Clean the build (Removes target folder)').
 action(()=>{
-    log('info', 'Cleaning up');
     del(pli.TARGET);
+    log('info', 'Clean up complete.');
 });
 
 cli.
 command('build:main:css').
 alias('bmc').
 description('Build Main CSS').action(()=>{
-    log('info', 'Starting main CSS build');
+    log('info', 'Starting main CSS build.');
     buildMainCSS();
-    log('info', 'Main CSS build complete!');
+    log('info', 'Main CSS build complete.');
 });
 
 cli.
 command('build:test:css').
 alias('btc').
 description('Build Test CSS').action(()=>{
-    log('info', 'Starting test CSS build');
+    log('info', 'Starting test CSS build.');
     buildTestCSS();
-    log('info', 'Test CSS build complete!');
+    log('info', 'Test CSS build complete.');
+});
+
+cli.
+command('test:css').
+alias('tc').
+description('Test CSS').action(()=>{
+    log('info', 'Starting build html test templates.');
+    testCSS();
+    log('info', 'Completed build of html test templates.');
 });
 
 cli.parse(process.argv);
+
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
