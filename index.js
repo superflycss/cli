@@ -44,6 +44,24 @@ const postcss_plugins =
         clearMessages: true
     })]; 
 
+const generateNPMTemplate = (name) => {
+        return 
+            `{
+                "name": ${name},
+                "version": "1.0.0",
+                "description": "",
+                "main": "src/main/index.css",
+                "scripts": {
+                  "test": "echo \"Error: no test specified\" && exit 1"
+                },
+                "keywords": [],
+                "license": "ISC"
+              }  
+            `
+        }
+        
+
+
 function testCSS() {
     console.log(pli.SRC_TEST_HTML);
     globby([pli.SRC_TEST_HTML]).then((paths)=> {
@@ -122,6 +140,20 @@ function buildTestCSS() {
 cli.
 version('1.0.0').
 description('SuperflyCSS Command Line Interface');
+
+cli.
+    command('new').
+    alias('n').
+    description('Create a new project').
+    action((name) => {
+        mkdirp.sync(`${name}/${pli.src.main.css}`);
+        mkdirp.sync(`${name}/${pli.src.test.css}`);
+        mkdirp.sync(`${name}/${pli.src.main.html}`);
+        mkdirp.sync(`${name}/${pli.src.test.html}`);
+        mkdirp.sync(`${name}/${pli.src.main.js}`);
+        mkdirp.sync(`${name}/${pli.src.test.js}`);
+        fs.writeFileSync(`./${name}/package.json`, generateNPMTemplate(name));
+    });
 
 cli.
 command('clean').
