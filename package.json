@@ -43,5 +43,15 @@
     "postcss-import": "^11.1.0",
     "postcss-reporter": "^5.0.0",
     "postcss-sass-color-functions": "^1.1.0"
-  }
+  },
+  "keywords": [
+    "css",
+    "html",
+    "css-components",
+    "css-utilities",
+    "superflycss",
+    "style",
+    "testing",
+    "visual testing"
+  ]
 }

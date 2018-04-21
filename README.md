@@ -80,7 +80,7 @@ Post the test build the content looks like this:
 ```html
 <div class="Test">
   <span class="Test_counter"></span>
-  <span class="Test_component">Button</span>
+  <span class="Test_component">Grid</span>
 
   <div class="Test_container">
     <div class="Test_input">
