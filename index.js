@@ -118,6 +118,7 @@ const generateTestHtml = (name) => {
         </div>
     </body>
 </html>
+
             `
             return html;
             }
