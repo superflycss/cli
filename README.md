@@ -11,13 +11,13 @@ Place main css files in `src/main/css` and test css files in `src/test/css`.  Bu
 
 ## Usage
 
-| Command                | Description                 |
-|------------------------|-----------------------------|
-| sfc new [project name] | Create a new Project        |
-| sfc clean              | Delete the target directory |
-| sfc build:main:css     | Build the main css file     |
-| sfc build:test:css     | Build the test css file     |
-| sfc test:css           | Build the test html file    |
+| `Command`                | Description                 |
+|--------------------------|-----------------------------|
+| `sfc new [project name]` | Create a new Project        |
+| `sfc clean`              | Delete the target directory |
+| `sfc build:main:css`     | Build the main css file     |
+| `sfc build:test:css`     | Build the test css file     |
+| `sfc test:css`           | Build the test html file    |
 
 
 ## PostCSS Plugins Used by the CSS Build Commands
@@ -42,9 +42,9 @@ The following plugins are invoked when the tasks `build:main:css` and `build:tes
 
 ## Test CSS Command
 
-The `test:css` command supports the visual testing of [superflycss](https://github.com/superflycss/superflycss) [components](https://github.com/superflycss?utf8=%E2%9C%93&q=components&type=&language=) and [utilities](https://github.com/superflycss?utf8=%E2%9C%93&q=utilities&type=&language=) by building the builds the test `src/test/html/**/*.html` content.  It has the following features:
+The `sfc test:css` command supports the visual testing of [superflycss](https://github.com/superflycss/superflycss) [components](https://github.com/superflycss?utf8=%E2%9C%93&q=components&type=&language=) and [utilities](https://github.com/superflycss?utf8=%E2%9C%93&q=utilities&type=&language=) by building the `src/test/html/**/*.html` content.  It has the following features:
 - [Nunjucks](https://mozilla.github.io/nunjucks/) templating
-- Highlighting of content contained in `Test-markup`
+- Highlighting of content contained in the `Test-markup` block
 - Generation of a`Test-render` block that copies and displays the markup contained in the `Test-markup` block
 
 Sample prebuilt content is shown below.  The markup contained in `Test_markup` will be highlighted, and a corresponding `Test-render` block will be generated after the `Test_description` block.  <em>Note that the tree structure of the test markup must match the structure shown.</em>
@@ -112,5 +112,4 @@ Post the test build the content looks like this:
     </div>
   </div>
 </div>
-...
 ```
