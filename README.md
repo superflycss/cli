@@ -1,15 +1,15 @@
 # SuperflyCSS Commandline Interface
 
-
-CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) build, test, and serve/watch tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
-
-Place main css files in `src/main/css` and test css files in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  See the [Build PostCSS Plugins](https://github.com/superflycss/clid#plugins) list for a list of plugins currently supported.
+CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) build, test, and serve/watch tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.  See the [Build PostCSS Plugins](https://github.com/superflycss/clid#plugins) list for a list of plugins currently supported.
 
 ## Installation
 
 `npm i -g @superflycss/cli`
 
 ## Usage
+
+Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
+
 
 | `Command`                | Description                                     |
 |--------------------------|-------------------------------------------------|
