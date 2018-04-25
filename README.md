@@ -8,7 +8,7 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 ## Usage
 
-The `sfc serve` command watches, builds, and serves the the projects html files.
+The `sfc serve` command watches and builds the project while also serving the projects html files.
 
 Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
 
