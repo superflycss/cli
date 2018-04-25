@@ -140,7 +140,10 @@ cli.
     command('new').
     alias('n').
     description('Create a new project').
-    action((name) => {
+    action((name) => {        
+        if (!name.includes("-")) {
+            log('warn', "Project names should include a - character");
+        }
         mkdirp.sync(`${name}/${PLI.src.main.css}`);
         mkdirp.sync(`${name}/${PLI.src.test.css}`);
         mkdirp.sync(`${name}/${PLI.src.main.html}`);
