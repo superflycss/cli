@@ -1,7 +1,7 @@
 # SuperflyCSS Commandline Interface
 
 
-CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) build and test tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
+CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](https://github.com/superflycss) build, test, and serve/watch tasks.  The CLI uses the [pli - project layout instance](https://github.com/superflycss/pli) for project layout.
 
 Place main css files in `src/main/css` and test css files in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  See the [Build PostCSS Plugins](https://github.com/superflycss/clid#plugins) list for a list of plugins currently supported.
 
@@ -11,14 +11,14 @@ Place main css files in `src/main/css` and test css files in `src/test/css`.  Bu
 
 ## Usage
 
-| `Command`                | Description                 |
-|--------------------------|-----------------------------|
-| `sfc new [project name]` | Create a new Project        |
-| `sfc clean`              | Delete the target directory |
-| `sfc build:main:css`     | Build the main css file     |
-| `sfc build:test:css`     | Build the test css file     |
-| `sfc test:css`           | Build the test html file    |
-
+| `Command`                | Description                                     |
+|--------------------------|-------------------------------------------------|
+| `sfc new [project name]` | Create a new Project                            |
+| `sfc clean`              | Delete the target directory                     |
+| `sfc build:main:css`     | Build the main css file                         |
+| `sfc build:test:css`     | Build the test css file                         |
+| `sfc test:css`           | Build the test html file                        |
+| `sfc serve`              | Rebuilds and serves all files with browser-sync |
 
 ## PostCSS Plugins Used by the CSS Build Commands
 
