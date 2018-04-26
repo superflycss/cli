@@ -13,14 +13,14 @@ The `sfc serve` command watches and builds the project while also serving the pr
 Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
 
 
-| `Command`                | Description                                     |
-|--------------------------|-------------------------------------------------|
-| `sfc new [project name]` | Create a new Project                            |
-| `sfc clean`              | Delete the target directory                     |
-| `sfc build:main:css`     | Build the main css file                         |
-| `sfc build:test:css`     | Build the test css file                         |
-| `sfc test:css`           | Build the test html file                        |
-| `sfc serve`              | Rebuilds and serves all files with browser-sync |
+| `Command`                | Description                      |
+|--------------------------|----------------------------------|
+| `sfc new [project name]` | Create a new Project             |
+| `sfc clean`              | Delete the target directory      |
+| `sfc build:main:css`     | Build the main css file          |
+| `sfc build:test:css`     | Build the test css file          |
+| `sfc test:html`          | Build the test html file         |
+| `sfc serve`              | Live rebuild and serve all files |
 
 ## PostCSS Plugins Used by the CSS Build Commands
 
