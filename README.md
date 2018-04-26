@@ -21,6 +21,7 @@ Place main css files in `src/main/css` and test css files (The CSS used in the t
 | `sfc build:test:css`     | Build the test css file          |
 | `sfc test:html`          | Build the test html file         |
 | `sfc serve`              | Live rebuild and serve all files |
+| `sfc prepublish`         | Prepublish CSS files             |
 
 ## PostCSS Plugins Used by the CSS Build Commands
 
