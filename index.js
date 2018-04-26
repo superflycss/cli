@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const log = require('node-pretty-log');
 
-const fs = require('fs');
+const fs = require('fs-extra');
+const cpy = require('cpy');
 const del = require('del');
 const mkdirp = require('mkdirp');
 const PLI = require('@superflycss/pli');
@@ -49,10 +50,10 @@ const postcss_plugins =
             clearMessages: true
         })];
 
-function testCSS() {
-    log('info', 'Deleting target/test/html/**/*.css content.');
+function buildTestHtml() {
+    log('info', 'Deleting target/test/html/ content.');
     del(PLI.TARGET_TEST_HTML);
-    log('info', 'Building src/test/html/**/*.css content.');
+    log('info', 'Building src/test/html/ content.');
     globby([PLI.SRC_TEST_HTML]).then((paths) => {
         paths.forEach(source => {
             const filename = source.substring(PLI.src.test.html.length);
@@ -183,11 +184,11 @@ cli.
     });
 
 cli.
-    command('test:css').
-    alias('tc').
+    command('test:html').
+    alias('th').
     description('Test CSS').action(() => {
         log('info', 'Starting build html test templates.');
-        testCSS();
+        buildTestHtml();
         log('info', 'Completed build of html test templates.');
     });
 
@@ -251,6 +252,17 @@ cli.
         });
     });
 
+    cli.
+    command('prepublish').
+    alias('p').
+    description('Prepublish the CSS').action(() => {
+        log('info', 'Prepublishing...');
+        del(PLI.DIST);
+        mkdirp.sync(PLI.DIST);
+        cpy(PLI.SRC_MAIN_CSS, PLI.DIST);
+        cpy('./package.json', PLI.DIST);
+        log('info', 'Completed prepublishing.');
+    });
 
 cli.parse(process.argv);
 
