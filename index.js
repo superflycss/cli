@@ -197,6 +197,9 @@ cli.
     alias('s').
     description('Serve project').
     action(() => {
+        buildMainCSS();
+        buildTestCSS();
+        buildTestHtml();
         var bs = require("browser-sync").create();
 
         // Start the browsersync server
