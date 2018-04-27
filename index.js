@@ -113,7 +113,7 @@ function buildMainCSS() {
 }
 
 function buildTestCSS() {
-    log('info', 'Deleting target/main/css/ content.');
+    log('info', 'Deleting target/test/css/ content.');
     del(PLI.TARGET_TEST_CSS);
     log('info', 'Building src/test/css content.');
     globby([PLI.SRC_TEST_CSS]).then((paths) => {
