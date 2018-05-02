@@ -161,7 +161,12 @@ cli.
     alias('c').
     description('Clean the build (Removes target folder)').
     action(() => {
+        log('info', 'Deleting target.');
         del(PLI.TARGET);
+        log('info', 'Deleting dist.');
+        del(PLI.DIST);
+        log('info', 'Deleting deploy.');
+        del(PLI.DEPLOY);        
         log('info', 'Clean up complete.');
     });
 
