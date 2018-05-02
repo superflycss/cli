@@ -56,8 +56,8 @@ function buildTestHtml() {
     log('info', 'Building src/test/html/ content.');
     globby([PLI.SRC_TEST_HTML]).then((paths) => {
         paths.forEach(source => {
-            const filename = source.substring(PLI.src.test.html.length);
-            const target = path.join(PLI.target.test.html, filename);
+            const targetDirectory = path.dirname(source).replace(PLI.SRC, PLI.TARGET);
+            const targetFile = source.replace(PLI.SRC, PLI.TARGET);
             fs.readFile(source, (err, html) => {
                 const dom = new JSDOM(html);
                 const document = dom.window.document;
@@ -83,8 +83,8 @@ function buildTestHtml() {
                     node.innerHTML = highlight.highlight('html', markup).value;
                 });
 
-                mkdirp.sync(PLI.target.test.html);
-                fs.writeFileSync(target, dom2.serialize());
+                mkdirp.sync(targetDirectory);
+                fs.writeFileSync(targetFile, dom2.serialize());
             });
         });
     });
@@ -97,15 +97,16 @@ function buildMainCSS() {
     log('info', 'Building src/main/css/**/*.css content.');
     globby([PLI.SRC_MAIN_CSS]).then((paths) => {
         paths.forEach(source => {
-            const filename = source.substring(PLI.src.main.css.length);
-            const target = path.join(PLI.target.main.css, filename);
+            const targetDirectory = path.dirname(source).replace(PLI.SRC, PLI.TARGET);
+            console.log(targetDirectory);
+            const targetFile = source.replace(PLI.SRC, PLI.TARGET);
             fs.readFile(source, (err, css) => {
                 postcss(postcss_plugins)
-                    .process(css, { from: source, to: target })
+                    .process(css, { from: source, to: targetFile })
                     .then(result => {
-                        mkdirp.sync(PLI.target.main.css);
-                        fs.writeFileSync(target, result.css);
-                        if (result.map) fs.writeFileSync(target + '.map', result.map);
+                        mkdirp.sync(targetDirectory);
+                        fs.writeFileSync(targetFile, result.css);
+                        if (result.map) fs.writeFileSync(targetFile + '.map', result.map);
                     });
             });
         });
@@ -118,15 +119,15 @@ function buildTestCSS() {
     log('info', 'Building src/test/css content.');
     globby([PLI.SRC_TEST_CSS]).then((paths) => {
         paths.forEach(source => {
-            const filename = source.substring(PLI.src.test.css.length);
-            const target = path.join(PLI.target.test.css, filename);
+            const targetDirectory = path.dirname(source).replace(PLI.SRC, PLI.TARGET);
+            const targetFile = source.replace(PLI.SRC, PLI.TARGET);
             fs.readFile(source, (err, css) => {
                 postcss(postcss_plugins)
-                    .process(css, { from: source, to: target })
+                    .process(css, { from: source, to: targetFile })
                     .then(result => {
-                        mkdirp.sync(PLI.target.test.css);
-                        fs.writeFileSync(target, result.css);
-                        if (result.map) fs.writeFileSync(target + '.map', result.map);
+                        mkdirp.sync(targetDirectory);
+                        fs.writeFileSync(targetFile, result.css);
+                        if (result.map) fs.writeFileSync(targetFile + '.map', result.map);
                     });
             });
         });
@@ -169,27 +170,30 @@ cli.
     command('build:main:css').
     alias('bmc').
     description('Build Main CSS').action(() => {
-        log('info', 'Starting main CSS build.');
         buildMainCSS();
-        log('info', 'Main CSS build complete.');
     });
 
 cli.
     command('build:test:css').
     alias('btc').
     description('Build Test CSS').action(() => {
-        log('info', 'Starting test CSS build.');
         buildTestCSS();
-        log('info', 'Test CSS build complete.');
+    });
+
+    cli.
+    command('build').
+    alias('b').
+    description('Build main css, test css, and test html').action(() => {
+        buildMainCSS();
+        buildTestCSS();
+        buildTestHtml();
     });
 
 cli.
     command('test:html').
-    alias('th').
+    alias('t').
     description('Test CSS').action(() => {
-        log('info', 'Starting build html test templates.');
         buildTestHtml();
-        log('info', 'Completed build of html test templates.');
     });
 
 cli.
@@ -256,13 +260,15 @@ cli.
     });
 
     cli.
-    command('prepublish').
-    alias('p').
+    command('dist').
+    alias('d').
     description('Prepublish the CSS').action(() => {
-        log('info', 'Prepublishing...');
-        del(PLI.DIST);
+        log('info', 'Deleting the dist directory');
+        del.sync(PLI.DIST);
+        log('info', 'Creating the dist directory');
         mkdirp.sync(PLI.DIST);
-        cpy(PLI.SRC_MAIN_CSS, PLI.DIST);
+        log('info', 'Copying files');
+        require('copy-dir').sync(PLI.src.main.css, PLI.DIST);
         cpy('./package.json', PLI.DIST);
         log('info', 'Completed prepublishing.');
     });
