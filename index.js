@@ -98,7 +98,6 @@ function buildMainCSS() {
     globby([PLI.SRC_MAIN_CSS]).then((paths) => {
         paths.forEach(source => {
             const targetDirectory = path.dirname(source).replace(PLI.SRC, PLI.TARGET);
-            console.log(targetDirectory);
             const targetFile = source.replace(PLI.SRC, PLI.TARGET);
             fs.readFile(source, (err, css) => {
                 postcss(postcss_plugins)

@@ -2,7 +2,7 @@
   "name": "@superflycss/cli",
   "author": "Ole Ersoy",
   "license": "MIT",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "SuperflyCSS Command Line Interface",
   "main": "index.js",
   "scripts": {
@@ -21,29 +21,30 @@
     "sfc": "./index.js"
   },
   "dependencies": {
-    "@superflycss/pli": "^1.1.0",
-    "autoprefixer": "^8.1.0",
-    "browser-sync": "^2.23.7",
-    "commander": "^2.14.1",
+    "@superflycss/pli": "^1.2.0",
+    "autoprefixer": "^8.4.1",
+    "browser-sync": "^2.24.1",
+    "commander": "^2.15.1",
+    "copy-dir": "^0.3.0",
     "cpy": "^6.0.0",
     "del": "^3.0.0",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^6.0.0",
     "gaze": "^1.1.2",
     "globby": "^8.0.1",
     "highlight.js": "^9.12.0",
-    "jsdom": "^11.6.2",
+    "jsdom": "^11.10.0",
     "mkdirp": "^0.5.1",
     "node-pretty-log": "^1.1.0",
     "npm": "^6.0.0",
     "nunjucks": "^3.1.2",
-    "postcss": "^6.0.19",
-    "postcss-apply": "^0.8.0",
+    "postcss": "^6.0.22",
+    "postcss-apply": "^0.10.0",
     "postcss-calc": "^6.0.1",
     "postcss-color-function": "^4.0.1",
     "postcss-custom-media": "^6.0.0",
     "postcss-custom-properties": "^7.0.0",
     "postcss-each": "^0.10.0",
-    "postcss-font-magician": "^2.1.0",
+    "postcss-font-magician": "^2.1.1",
     "postcss-for": "^2.1.1",
     "postcss-import": "^11.1.0",
     "postcss-reporter": "^5.0.0",
@@ -61,5 +62,8 @@
     "automation",
     "highlighting",
     "browser-sync"
-  ]
+  ],
+  "devDependencies": {
+    "npm-check-updates": "^2.14.2"
+  }
 }
