@@ -142,7 +142,7 @@ cli.
     command('new').
     alias('n').
     description('Create a new project').
-    action((name) => {        
+    action((name) => {
         if (!name.includes("-")) {
             log('warn', "Project names should include a - character");
         }
@@ -167,7 +167,7 @@ cli.
         log('info', 'Deleting dist.');
         del(PLI.DIST);
         log('info', 'Deleting deploy.');
-        del(PLI.DEPLOY);        
+        del(PLI.DEPLOY);
         log('info', 'Clean up complete.');
     });
 
@@ -185,7 +185,7 @@ cli.
         buildTestCSS();
     });
 
-    cli.
+cli.
     command('build').
     alias('b').
     description('Build main css, test css, and test html').action(() => {
@@ -264,7 +264,7 @@ cli.
         });
     });
 
-    cli.
+cli.
     command('dist').
     alias('d').
     description('Prepublish the CSS').action(() => {
@@ -273,10 +273,9 @@ cli.
         log('info', 'Creating the dist directory');
         mkdirp.sync(PLI.DIST);
         log('info', 'Copying files');
-        //require('copy-dir').sync(PLI.src.main.css, PLI.DIST);
-        //TODO Remove copy-dir
         cpy('./package.json', PLI.DIST);
-        rsync(PLI.src.main.css, PLI.DIST, function(error, results) {
+        cpy('./README.md', PLI.DIST);
+        rsync(PLI.src.main.css, PLI.DIST, function (error, results) {
             if (error) {
                 console.error('Prepublished command failed: ' + error);
             } else {
