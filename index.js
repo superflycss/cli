@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const log = require('node-pretty-log');
+const rsync = require('recursive-copy');
 
 const fs = require('fs-extra');
 const cpy = require('cpy');
@@ -272,9 +273,16 @@ cli.
         log('info', 'Creating the dist directory');
         mkdirp.sync(PLI.DIST);
         log('info', 'Copying files');
-        require('copy-dir').sync(PLI.src.main.css, PLI.DIST);
+        //require('copy-dir').sync(PLI.src.main.css, PLI.DIST);
+        //TODO Remove copy-dir
         cpy('./package.json', PLI.DIST);
-        log('info', 'Completed prepublishing.');
+        rsync(PLI.src.main.css, PLI.DIST, function(error, results) {
+            if (error) {
+                console.error('Prepublished command failed: ' + error);
+            } else {
+                console.info('Prepublished ' + results.length + ' files');
+            }
+        });
     });
 
 cli.parse(process.argv);
