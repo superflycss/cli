@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+
+const insertAfter = require('./lib/dom/');
 const log = require('node-pretty-log');
 const rsync = require('recursive-copy');
 
@@ -267,25 +269,22 @@ cli.
 cli.
     command('dist').
     alias('d').
-    description('Prepublish the CSS').action(() => {
+    description('Prepare dist directory for publishing to NPM').action(() => {
         log('info', 'Deleting the dist directory');
         del.sync(PLI.DIST);
         log('info', 'Creating the dist directory');
         mkdirp.sync(PLI.DIST);
-        log('info', 'Copying files');
+        log('info', 'Copying package.json to dist');
         cpy('./package.json', PLI.DIST);
+        log('info', 'Copying README.md dist');
         cpy('./README.md', PLI.DIST);
         rsync(PLI.src.main.css, PLI.DIST, function (error, results) {
             if (error) {
                 console.error('Prepublished command failed: ' + error);
             } else {
-                console.info('Prepublished ' + results.length + ' files');
+                console.info('Moved ' + (results.length + 2) + ' files');
             }
         });
     });
 
 cli.parse(process.argv);
-
-function insertAfter(referenceNode, newNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
