@@ -232,6 +232,7 @@ cli.
              */
             watcher.on('changed', function (filepath) {
                 buildMainCSS();
+                bs.reload("*.html");                
             });
         });
 
@@ -247,6 +248,7 @@ cli.
              */
             watcher.on('changed', function (filepath) {
                 buildTestCSS();
+                bs.reload("*.html");
             });
         });
 
@@ -262,6 +264,7 @@ cli.
              */
             watcher.on('changed', function (filepath) {
                 buildTestHtml();
+                bs.reload("*.html");
             });
         });
     });
