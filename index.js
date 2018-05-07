@@ -142,7 +142,7 @@ cli.
     description('SuperflyCSS Command Line Interface');
 
 cli.
-    command('new').
+    command('new <name>').
     alias('n').
     description('Create a new project').
     action((name) => {
@@ -215,14 +215,13 @@ cli.
         buildMainCSS();
         buildTestCSS();
         buildTestHtml();
+
         var bs = require("browser-sync").create();
 
         // Start the browsersync server
         bs.init({
             server: PLI.TARGET
         });
-
-        bs.reload("*.html");
 
         gaze(PLI.SRC_MAIN_CSS, (err, watcher) => {
 
@@ -236,7 +235,7 @@ cli.
              */
             watcher.on('changed', function (filepath) {
                 buildMainCSS();
-                bs.reload("*.html");                
+                bs.reload("*.css");                
             });
         });
 
@@ -252,7 +251,7 @@ cli.
              */
             watcher.on('changed', function (filepath) {
                 buildTestCSS();
-                bs.reload("*.html");
+                bs.reload("*.css");
             });
         });
 
