@@ -159,6 +159,7 @@ cli.
         fs.writeFileSync(`./${name}/.gitignore`, generateGitignore());
         fs.writeFileSync(`./${name}/${PLI.src.test.html}/index.html`, generateTestHtml(name));
         fs.writeFileSync(`./${name}/${PLI.src.test.css}/index.css`, generateTestCss());
+        fs.writeFileSync(`./${name}/${PLI.src.main.css}/index.css`, "");
         
     });
 
