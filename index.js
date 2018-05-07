@@ -37,6 +37,7 @@ const { JSDOM } = jsdom;
 const generatePackageJson = require('./lib/generators/package-json');
 const generateTestHtml = require('./lib/generators/index-html');
 const generateGitignore = require('./lib/generators/gitignore');
+const generateTestCss = require('./lib/generators/test-index-css');
 
 const postcss_plugins =
     [pc_import,
@@ -157,6 +158,8 @@ cli.
         fs.writeFileSync(`./${name}/package.json`, generatePackageJson(name));
         fs.writeFileSync(`./${name}/.gitignore`, generateGitignore());
         fs.writeFileSync(`./${name}/${PLI.src.test.html}/index.html`, generateTestHtml(name));
+        fs.writeFileSync(`./${name}/${PLI.src.test.css}/index.css`, generateTestCss());
+        
     });
 
 cli.
