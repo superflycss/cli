@@ -16,12 +16,12 @@ Place main css files in `src/main/css` and test css files (The CSS used in the t
 | `Command`                | Description                      |
 |--------------------------|----------------------------------|
 | `sfc new [project name]` | Create a new Project             |
-| `sfc clean`              | Delete the target directory      |
-| `sfc build:main:css`     | Build the main css file          |
-| `sfc build:test:css`     | Build the test css file          |
-| `sfc test:html`          | Build the test html file         |
+| `sfc clean`              | Delete all non src directories   |
+| `sfc build:main:css`     | Build the main css file(s)       |
+| `sfc build:test:css`     | Build the test css file(s)       |
+| `sfc build:test:html`    | Build the test html file         |
 | `sfc serve`              | Live rebuild and serve all files |
-| `sfc prepublish`         | Prepublish CSS files             |
+| `sfc dist`               | Prepublish CSS files             |
 
 ## PostCSS Plugins Used by the CSS Build Commands
 
