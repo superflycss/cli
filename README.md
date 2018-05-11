@@ -10,6 +10,8 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 The `sfc serve` command watches and builds the project while also serving the projects html files with live reload courtesy of [browser-sync](https://browsersync.io/).
 
+Specifically it build `src/test/css/**/*.css` files and the results are saved to `serve/css`.  The `src/test/html/**/*.html` files are build and save to the `serve` directory.
+
 Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
 
 
@@ -20,6 +22,7 @@ Place main css files in `src/main/css` and test css files (The CSS used in the t
 | `sfc build:main:css`     | Build the main css file(s)       |
 | `sfc build:test:css`     | Build the test css file(s)       |
 | `sfc build:test:html`    | Build the test html file         |
+| `sfc build`              | Build all css and html files     |
 | `sfc serve`              | Live rebuild and serve all files |
 | `sfc dist`               | Prepublish CSS files             |
 
