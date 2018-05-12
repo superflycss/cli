@@ -8,6 +8,31 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 ## Usage
 
+Type `sfc -h` to see supported commands.  The output will look like this:
+
+``` console
+  Usage: sfc [options] [command]
+
+  SuperflyCSS Command Line Interface
+
+  Options:
+
+    -V, --version        output the version number
+    -h, --help           output usage information
+
+  Commands:
+
+    new|n <name>         Create a new project
+    clean|c              Clean the build (Removes target folder)
+    build:main:css|bmc   Build main css)
+    build:test:css|btc   Build Test CSS
+    build:test:html|bth  Build Test HTML
+    build|b              Build main css, test css, and test html
+    dist|d               Prepare dist directory for publishing to NPM
+    serve|s              Serve test css and html
+
+```
+
 The `sfc serve` command watches and builds the project while also serving the projects html files with live reload courtesy of [browser-sync](https://browsersync.io/).
 
 Specifically it build `src/test/css/**/*.css` files and the results are saved to `serve/css`.  The `src/test/html/**/*.html` files are build and save to the `serve` directory.
