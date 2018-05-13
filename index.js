@@ -12,9 +12,6 @@ const mkdirp = require('mkdirp');
 const PLI = require('@superflycss/pli');
 const cli = require('commander');
 
-cli.
-    version('1.0.0').
-    description('SuperflyCSS Command Line Interface');
 
 //Commands
 require('./lib/commands/new')(cli);
@@ -26,4 +23,8 @@ require('./lib/commands/build')(cli);
 require('./lib/commands/dist')(cli);
 require('./lib/commands/serve')(cli);
 
-cli.parse(process.argv);
+cli.
+    version('1.0.0').
+    description('SuperflyCSS Command Line Interface').
+    option("-t, --type [type]").
+    parse(process.argv);
