@@ -1,15 +1,6 @@
 #!/usr/bin/env node
 
 "use strict";
-
-const log = require('node-pretty-log');
-const rsync = require('recursive-copy');
-const cpy = require('cpy');
-
-const fs = require('fs-extra');
-const del = require('del');
-const mkdirp = require('mkdirp');
-const PLI = require('@superflycss/pli');
 const cli = require('commander');
 
 
