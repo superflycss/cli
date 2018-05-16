@@ -40,17 +40,6 @@ Specifically it build `src/test/css/**/*.css` files and the results are saved to
 Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
 
 
-| `Command`                | Description                      |
-|--------------------------|----------------------------------|
-| `sfc new [project name]` | Create a new Project             |
-| `sfc clean`              | Delete all non src directories   |
-| `sfc build:main:css`     | Build the main css file(s)       |
-| `sfc build:test:css`     | Build the test css file(s)       |
-| `sfc build:test:html`    | Build the test html file         |
-| `sfc build`              | Build all css and html files     |
-| `sfc serve`              | Live rebuild and serve all files |
-| `sfc dist`               | Prepublish CSS files             |
-
 ## PostCSS Plugins Used by the CSS Build Commands
 
 The following plugins are invoked when the tasks `build:main:css` and `build:test:css` are invoked.
