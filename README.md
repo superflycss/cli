@@ -18,6 +18,7 @@ Type `sfc -h` to see supported commands.  The output will look like this:
   Options:
 
     -V, --version        output the version number
+    -t, --type [type]    
     -h, --help           output usage information
 
   Commands:
@@ -29,7 +30,7 @@ Type `sfc -h` to see supported commands.  The output will look like this:
     build:test:html|bth  Build Test HTML
     build|b              Build main css, test css, and test html
     dist|d               Prepare dist directory for publishing to NPM
-    serve|s              Serve test css and html
+    serve|s              Compile and serve main and test css and test html
 
 ```
 
