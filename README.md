@@ -99,15 +99,15 @@ Sample prebuilt content is shown below.  The markup contained in `Test_markup` w
 Post the test build the content looks like this:
 
 ```html
-<div class="Test">
-  <span class="Test_counter"></span>
-  <span class="Test_component">Grid</span>
+<div class="TestHeader">
+  <span class="TestCounter"></span>
+  <span class="TestComponent">Grid</span>
 
-  <div class="Test_container">
-    <div class="Test_input">
-      <div class="Test_when"></div>
-      <div class="Test_description">When the <code class="hljs"><span class="hljs-title">.Grid</span></code> container holds 2 <code class="hljs"><span class="hljs-title">.Grid-cell</span></code> instances.</div>
-      <pre class="Test_markup">
+  <div class="TestContainer">
+    <div class="TestInput">
+      <div class="TestWhen"></div>
+      <div class="TestDescription">When the <code class="hljs"><span class="hljs-title">.Grid</span></code> container holds 2 <code class="hljs"><span class="hljs-title">.Grid-cell</span></code> instances.</div>
+      <pre class="TestMarkup">
             <code class="html hljs">
 &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"Grid"</span>&gt;
   <span class="xml"><span class="hljs-comment">&lt;!-- Use Nunjucks to keep markup DRY --&gt;</span>
@@ -120,10 +120,10 @@ Post the test build the content looks like this:
             </code>
           </pre>
     </div>
-    <div class="Test_output">
-      <div class="Test_then"></div>
-      <div class="Test_description">Each grid cell occupies the same amount of space witin the grid container row.</div>
-      <div class="Test_render">
+    <div class="TestOutput">
+      <div class="TestThen"></div>
+      <div class="TestDescription">Each grid cell occupies the same amount of space witin the grid container row.</div>
+      <div class="TestRender">
         <div class="Grid">
           <!-- Use Nunjucks to keep markup DRY -->
           <div class="Grid_cell">1/2</div>
