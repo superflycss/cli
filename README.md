@@ -71,15 +71,15 @@ The `sfc test:css` command supports the visual testing of [superflycss](https://
 Sample prebuilt content is shown below.  The markup contained in `Test_markup` will be highlighted, and a corresponding `Test-render` block will be generated after the `Test_description` block.  <em>Note that the tree structure of the test markup must match the structure shown.</em>
 
 ```html
-<div class="Test">
-    <span class="Test_counter"></span>
-    <span class="Test_component">Button</span>
+<div class="TestHeader">
+    <span class="TestCounter"></span>
+    <span class="TestComponent">Button</span>
 
-    <div class="Test_container">
-      <div class="Test_input">
-          <div class="Test_when"></div>
-          <div class="Test_description">When the <code>.Grid</code> container holds 2 <code>.Grid-cell</code> instances.</div>
-          <pre class="Test_markup">
+    <div class="TestContainer">
+      <div class="TestInput">
+          <div class="TestWhen"></div>
+          <div class="TestDescription">When the <code>.Grid</code> container holds 2 <code>.Grid-cell</code> instances.</div>
+          <pre class="TestMarkup">
             <code class="html">
               <div class="Grid">
                   <!-- Use Nunjucks to keep markup DRY -->
@@ -90,9 +90,9 @@ Sample prebuilt content is shown below.  The markup contained in `Test_markup` w
             </code>
           </pre>
       </div>
-      <div class="Test_output">
-          <div class="Test_then"></div>
-          <div class="Test_description">Each grid cell occupies the same amount of space witin the grid container row.</div>
+      <div class="TestOutput">
+          <div class="TestThen"></div>
+          <div class="TestDescription">Each grid cell occupies the same amount of space witin the grid container row.</div>
       </div>
   </div>
 ```
