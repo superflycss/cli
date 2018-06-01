@@ -6,12 +6,12 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 `npm i -g @superflycss/cli`
 
-## Articles
+## Usage
+
+### Blog Articles
 
 [Prototyping With Bootstrap 4 Using the SuperflyCSS CLI](https://medium.com/@ole.ersoy/prototyping-with-bootstrap-4-using-the-superflycss-cli-a40ec24237c2)
 
-
-## Usage
 
 ### General
 
