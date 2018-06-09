@@ -13,7 +13,12 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 [Prototyping With Bootstrap 4 Using the SuperflyCSS CLI](https://medium.com/@ole.ersoy/prototyping-with-bootstrap-4-using-the-superflycss-cli-a40ec24237c2)
 
 
-### General
+### New Project Types
+The `sfc new` command supports four different options for project type.  They are `c` for component, `u` for utility, `p` for prototype, and `a` for application.
+
+So for example when generating a new component project, use `sfc new -t c`.  Prototype is the default, so when creating a prototype project just use `sfc new projectname`.
+
+### Supported Commands
 
 Type `sfc -h` to see supported commands.  The output will look like this:
 
