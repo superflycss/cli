@@ -77,6 +77,6 @@ The following plugins are invoked when the tasks `build:main:css` and `build:tes
 
 The `sfc test:css` command supports the visual testing of [superflycss](https://github.com/superflycss/superflycss) [components](https://github.com/superflycss?utf8=%E2%9C%93&q=components&type=&language=) and [utilities](https://github.com/superflycss?utf8=%E2%9C%93&q=utilities&type=&language=) by building the `src/test/html/**/*.html` content.  It has the following features:
 - [Nunjucks](https://mozilla.github.io/nunjucks/) templating
-- Highlighting of content contained in the `Test-markup` block
+- [Highlighting](https://highlightjs.org/) of content contained in the `Test-markup` block
 
 For sample tests using nunjucks templates to keep the content [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) see [component-test](https://github.com/superflycss/component-test).
