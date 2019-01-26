@@ -14,7 +14,7 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 
 ### New Project Types
-The `sfc new` command supports four different options for project type.  They are `c` for component, `u` for utility, `p` for prototype, and `a` for application.
+The `sfc new` command supports five different options for project type.  They are `c` for component, `u` for utility, `p` for prototype, `e` for empty, and `a` for application.
 
 So for example when generating a new component project, use `sfc new -t c`.  Prototype is the default, so when creating a prototype project just use `sfc new projectname`.
 
@@ -35,15 +35,18 @@ Type `sfc -h` to see supported commands.  The output will look like this:
 
   Commands:
 
-    new|n <name>         Create a new project
-    clean|c              Clean the build (Removes target folder)
-    build:main:css|bmc   Build main css)
-    build:test:css|btc   Build Test CSS
-    build:test:html|bth  Build Test HTML
+    new|n <name>                 Create a new project
+    clean|c                      Clean the build (Removes target folder)
+    build:main:css|bmc           Build main css)
+    build:test:css|btc           Build test CSS
+    build:test:html|bth          Build test HTML
+    build:main:filtered:css|bmfc Build main filtered CSS
+    build:test:filtered:css|btfc Build test filtered CSS
+    build:main:minified:css|bmmc Build main filtered CSS
+    build:test:minified:css|btmc Build test filtered CSS
     build|b              Build main css, test css, and test html
     dist|d               Prepare dist directory for publishing to NPM
     serve|s              Compile and serve main and test css and test html
-
 ```
 
 The `sfc serve` command watches and builds the project while also serving the projects html files with live reload courtesy of [browser-sync](https://browsersync.io/).
@@ -52,6 +55,23 @@ Specifically it build `src/test/css/**/*.css` files and the results are saved to
 
 Place main css files in `src/main/css` and test css files (The CSS used in the test html file) in `src/test/css`.  Built main css files are saved in `target/main/css` and test css files are saved to `target/test/css`.  Use test case files in `src/test/html/` to test the CSS being built.  Run `sfc test:css` to compile the test html files.
 
+#### Filtering
+
+Filter CSS selectors against `target/main/html` or `target/test/html` using `postcss-uncss`.
+
+- Run `sfc bmfc` to filter `target/main/css` files again `target/main/html` content.  
+- Run `sfc btfc` to filter `target/test/css` files again `target/test/html` content.  
+
+The files produced will have a `.filtered.css` extension.
+
+#### Minification
+
+Minification is performed with `cssnano` and `mqpackger`.  Uncss is used when html is present to run against.
+
+- Run `sfc bmmc` to minify `src/main/css` files.  
+- Run `sfc btmc` to minify `src/test/css` files.
+
+The files produced will have a `.min.css` extension.
 
 ## PostCSS Plugins Used by the CSS Build Commands
 
@@ -66,12 +86,14 @@ The following plugins are invoked when the tasks `build:main:css` and `build:tes
 | postcss-calc                 | https://github.com/postcss/postcss-calc                |
 | postcss-color-function       | https://github.com/postcss/postcss-color-function      |
 | postcss-custom-media         | https://github.com/postcss/postcss-custom-media        |
-| postcss-custom-properties    | https://github.com/postcss/postcss-custom-properties   |
+| postcss-css-variables        | https://github.com/MadLittleMods/postcss-css-variables |
 | postcss-each                 | https://github.com/outpunk/postcss-each                |
 | postcss-font-magician        | https://github.com/jonathantneal/postcss-font-magician |
 | postcss-for                  | https://github.com/antyakushev/postcss-for             |
 | postcss-reporter             | https://github.com/postcss/postcss-reporter            |
 | postcss-sass-color-functions | https://github.com/adam-h/postcss-sass-color-functions |
+
+Filtering is performed by the `postcss-uncss` plugin and minification is performed using `css-mqpacker` and `cssnano`.
 
 ## Test CSS Command
 

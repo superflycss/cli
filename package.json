@@ -2,10 +2,18 @@
   "name": "@superflycss/cli",
   "author": "Ole Ersoy",
   "license": "MIT",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "description": "SuperflyCSS Command Line Interface",
   "main": "index.js",
+  "jest": {
+    "testPathIgnorePatterns": [
+      ".test",
+      "node_modules"
+    ]
+  },
   "scripts": {
+    "clean": "rm -fr ./test/sandbox",
+    "test": "jest",
     "update": "ncu -a && npm i"
   },
   "repository": {
@@ -21,34 +29,39 @@
     "sfc": "./index.js"
   },
   "dependencies": {
-    "@superflycss/pli": "^3.0.0",
-    "autoprefixer": "^9.1.5",
-    "browser-sync": "^2.24.7",
-    "commander": "^2.18.0",
+    "@superflycss/pli": "^3.0.2",
+    "autoprefixer": "^9.4.6",
+    "browser-sync": "^2.26.3",
+    "commander": "^2.19.0",
     "cpy": "^7.0.1",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.8",
     "del": "^3.0.0",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^7.0.1",
     "gaze": "^1.1.3",
-    "globby": "^8.0.1",
-    "highlight.js": "^9.12.0",
-    "jsdom": "^12.0.0",
+    "globby": "^9.0.0",
+    "highlight.js": "^9.13.1",
+    "jsdom": "^13.2.0",
     "mkdirp": "^0.5.1",
     "node-pretty-log": "^1.1.0",
-    "nunjucks": "^3.1.3",
-    "postcss": "^7.0.2",
+    "nunjucks": "^3.1.7",
+    "postcss": "^7.0.14",
     "postcss-apply": "^0.11.0",
-    "postcss-calc": "^6.0.1",
+    "postcss-calc": "^7.0.1",
     "postcss-color-function": "^4.0.1",
     "postcss-conditionals": "^2.1.0",
-    "postcss-custom-media": "^6.0.0",
-    "postcss-custom-properties": "7.0.0",
+    "postcss-css-variables": "^0.11.0",
+    "postcss-custom-media": "^7.0.7",
     "postcss-each": "^0.10.0",
     "postcss-font-magician": "^2.2.1",
     "postcss-for": "^2.1.1",
-    "postcss-import": "^12.0.0",
-    "postcss-reporter": "^6.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-reporter": "^6.0.1",
     "postcss-sass-color-functions": "^1.1.0",
-    "recursive-copy": "^2.0.9"
+    "postcss-uncss": "^0.16.1",
+    "recursive-copy": "^2.0.9",
+    "sugarss": "^2.0.0",
+    "uncss": "^0.16.2"
   },
   "keywords": [
     "css",
@@ -64,6 +77,7 @@
     "browser-sync"
   ],
   "devDependencies": {
-    "npm-check-updates": "^2.14.2"
+    "jest": "^23.6.0",
+    "npm-check-updates": "^2.15.0"
   }
 }
