@@ -10,7 +10,8 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 ### Blog Articles
 
-[Prototyping With Bootstrap 4 Using the SuperflyCSS CLI](https://medium.com/@ole.ersoy/prototyping-with-bootstrap-4-using-the-superflycss-cli-a40ec24237c2)
+- [Prototyping With Bootstrap 4 Using the SuperflyCSS CLI](https://medium.com/@ole.ersoy/prototyping-with-bootstrap-4-using-the-superflycss-cli-a40ec24237c2)
+- [Filtering Unused CSS Selectors With SuperflyCSS](https://medium.com/@ole.ersoy/filtering-unused-css-selectors-with-superflycss-69075e567574)
 
 
 ### New Project Types
