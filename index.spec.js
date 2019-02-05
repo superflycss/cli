@@ -181,7 +181,7 @@ describe("The build:test:filtered:css command", () => {
 });
 
 describe("The build:main:minified:css command", () => {
-  it.only("should build main minified css files", async () => {
+  it("should build main minified css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
     const html = fixtures.html();
@@ -199,7 +199,7 @@ describe("The build:main:minified:css command", () => {
 });
 
 describe("The build:test:minified:css command", () => {
-  it.only("should build test minified css files", async () => {
+  it("should build test minified css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
     const html = fixtures.html();
