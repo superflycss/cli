@@ -50,21 +50,35 @@ describe("The new command", () => {
   });  
 });
 
-
 describe("The build command", () => {
   it("should build main, test css and html files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const red = fixtures.css();
-    const redPath = path.join(sandbox, PLI.src.main.css,'index.css');
 
-    fs.writeFileSync(redPath, red);
+    const css = fixtures.css();
+    const cssPath = path.join(sandbox, PLI.src.main.css,'index.css');
+    fs.writeFileSync(cssPath, css);
+
+    const md = fixtures.md();
+    const mdPath = path.join(sandbox, './src/main/md/','index.md');
+    fs.writeFileSync(mdPath, md);
+
+    let html = fixtures.test_html();
+    let htmlPath = path.join(sandbox, PLI.src.test.html,'index.html');
+    fs.writeFileSync(htmlPath, html);
+
+    html = fixtures.main_html();
+    htmlPath = path.join(sandbox, PLI.src.main.html,'index.html');
+    fs.writeFileSync(htmlPath, html);
 
     result = await cli(["b"], sandbox);
+    
     expect(result.code).toBe(0);
     expect(result.stdout).toContain("build");
     del.sync(SANDBOX);
   });
+
+  
   it("should build sss files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
@@ -76,7 +90,41 @@ describe("The build command", () => {
     result = await cli(["b"], sandbox);
     expect(result.code).toBe(0);
     expect(result.stdout).toContain("build");
-    //del.sync(SANDBOX);
+    del.sync(SANDBOX);
+  });
+});
+
+describe("The build:main:md command", () => {
+  it("should build main md files", async () => {
+   
+    const sandbox = tmp();
+     
+    let result = await cli(["new",  "-t", "e", sandbox], ".");
+    const md = fixtures.md();
+    const mdPath = path.join(sandbox, './src/main/md/','index.md');
+    fs.writeFileSync(mdPath, md);
+
+    result = await cli(["bmmd"], sandbox);
+    expect(result.code).toBe(0);
+    expect(result.stdout).toContain("md");
+    del.sync(SANDBOX);
+  });
+});
+
+describe("The build:test:md command", () => {
+  it("should build test md files", async () => {
+    const sandbox = tmp();
+    let result = await cli(["new",  "-t", "e", sandbox], ".");
+    const md = fixtures.md();
+    const mdPath = path.join(sandbox, PLI.src.test.md,'index.md');
+
+    fs.writeFileSync(mdPath, md);
+
+    result = await cli(["btmd"], sandbox);
+    
+    expect(result.code).toBe(0);
+    expect(result.stdout).toContain("md");
+    del.sync(SANDBOX);
   });
 });
 
@@ -116,15 +164,15 @@ describe("The build:test:html command", () => {
   it("should build test html files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
-    const htmlPath = path.join(sandbox, PLI.src.test.html,'index.html');
 
+    const html = fixtures.test_html();
+    const htmlPath = path.join(sandbox, PLI.src.test.html,'index.html');
     fs.writeFileSync(htmlPath, html);
 
     result = await cli(["bth"], sandbox);
     expect(result.code).toBe(0);
     expect(result.stdout).toContain("build");
-    //del.sync(SANDBOX);
+    del.sync(SANDBOX);
   });
 });
 
@@ -132,7 +180,7 @@ describe("The build:main:html command", () => {
   it("should build main html files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
+    const html = fixtures.test_html();
     const htmlPath = path.join(sandbox, PLI.src.main.html,'index.html');
 
     fs.writeFileSync(htmlPath, html);
@@ -148,7 +196,7 @@ describe("The build:main:filtered:css command", () => {
   it("should build main filtered css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
+    const html = fixtures.test_html();
     const htmlPath = path.join(sandbox, PLI.src.main.html,'index.html');
     fs.writeFileSync(htmlPath, html);
     const css = fixtures.css();
@@ -166,7 +214,7 @@ describe("The build:test:filtered:css command", () => {
   it("should build main filtered css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
+    const html = fixtures.test_html();
     const htmlPath = path.join(sandbox, PLI.src.test.html,'index.html');
     fs.writeFileSync(htmlPath, html);
     const css = fixtures.css();
@@ -184,7 +232,7 @@ describe("The build:main:minified:css command", () => {
   it("should build main minified css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
+    const html = fixtures.test_html();
     const htmlPath = path.join(sandbox, PLI.src.main.html,'index.html');
     fs.writeFileSync(htmlPath, html);
     const css = fixtures.css();
@@ -202,7 +250,7 @@ describe("The build:test:minified:css command", () => {
   it("should build test minified css files", async () => {
     const sandbox = tmp();
     let result = await cli(["new",  "-t", "e", sandbox], ".");
-    const html = fixtures.html();
+    const html = fixtures.test_html();
     const htmlPath = path.join(sandbox, PLI.src.test.html,'index.html');
     fs.writeFileSync(htmlPath, html);
     const css = fixtures.css();
