@@ -18,6 +18,7 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 - [Visually Testing CSS With the SuperflyCSS Test Component](https://medium.com/@ole.ersoy/visually-testing-css-with-the-superflycss-test-component-963327abf0e2)
 - [Rendering Nunjucks Templates with SuperflyCSS](https://medium.com/@ole.ersoy/rendering-nunjucks-templates-with-superflycss-fffc93b04275)
 - [Rendering Markdown Documentation with SuperflyCSS](https://medium.com/@ole.ersoy/rendering-markdown-content-with-superflycss-5ea815dcc1dc)
+- [Dependency Management With SuperflyCSS](https://medium.com/@ole.ersoy/dependency-management-with-superflycss-ad0e77109c0c)
 
 
 ### New Project Types
