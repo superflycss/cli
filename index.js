@@ -5,7 +5,7 @@ const cli = require('commander');
 
 //Commands
 require('./lib/commands/new')(cli);
-require('./lib/commands/build')(cli);
+require('./lib/commands/build').build(cli);
 require('./lib/commands/clean')(cli);
 require('./lib/commands/dist')(cli);
 require('./lib/commands/serve')(cli);
