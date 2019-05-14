@@ -10,6 +10,7 @@ require('./lib/commands/clean')(cli);
 require('./lib/commands/dist')(cli);
 require('./lib/commands/serve')(cli);
 require('./lib/commands/deploy')(cli);
+require('./lib/commands/deploys')(cli);
 
 //require('./lib/commands/buildmainfilteredcss')(cli);
 //require('./lib/commands/buildtestfilteredcss')(cli);

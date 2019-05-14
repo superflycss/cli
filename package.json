@@ -2,7 +2,7 @@
   "name": "@superflycss/cli",
   "author": "Ole Ersoy",
   "license": "MIT",
-  "version": "4.1.15",
+  "version": "4.1.16",
   "description": "SuperflyCSS Command Line Interface",
   "main": "index.js",
   "jest": {
