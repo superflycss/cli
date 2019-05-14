@@ -10,6 +10,7 @@ CLI for SuperflyCSS Projects.  The CLI enables the running of [superflycss](http
 
 ### Blog Articles
 
+- [SuperflyCSS CLI New Deploy Feature](https://medium.com/@ole.ersoy/superflycss-cli-new-deploy-feature-5271f1dce308)
 - [Prototyping With Bootstrap 4 Using the SuperflyCSS CLI](https://medium.com/@ole.ersoy/prototyping-with-bootstrap-4-using-the-superflycss-cli-a40ec24237c2)
 - [Filtering Unused CSS Selectors With SuperflyCSS](https://medium.com/@ole.ersoy/filtering-unused-css-selectors-with-superflycss-69075e567574)
 - [Minifying Your CSS With SuperflyCSS](https://medium.com/@ole.ersoy/minifying-your-css-with-superflycss-8c1b9468beae)
